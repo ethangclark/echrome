@@ -44,7 +44,7 @@ const _runInNode = async (testData: IPCTestData): Promise<TestResult> => {
 
 const _createBrowserWindow = () => {
   const win = new BrowserWindow({
-    show: false,
+    show: process.env.JEST_ELECTRON_SHOW_WINDOW == 1,
     webPreferences: {
       nodeIntegration: true,
     }
