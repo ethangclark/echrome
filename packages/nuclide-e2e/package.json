@@ -1,16 +1,16 @@
 {
     "name": "jest-hax-nuclide-e2e",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "description": "Jest runner that spawns atom/electron workers instead of node",
     "author": "Ethan Gregory Clark",
     "license": "MIT",
     "homepage": "https://github.com/facebook-atom/jest-electron-hax",
     "repository": "https://github.com/facebook-atom/jest-electron-hax",
     "dependencies": {
-        "jest-hax-core": "^3.0.0",
-        "jest-hax-rpc": "^3.0.0",
         "fs-extra": "^7.0.0",
         "jest-circus": "^26.6.0",
+        "jest-hax-core": "^3.0.1",
+        "jest-hax-rpc": "^3.0.1",
         "jest-util": "^26.6.0",
         "throat": "^4.1.0",
         "uuid": "^3.3.2"
