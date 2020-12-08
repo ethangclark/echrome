@@ -3,7 +3,7 @@
  * THIS IS A GENERATED FILE. DO NOT MODIFY IT MANUALLY!
  * ****************************************************
  * @flow
- * @generated 65cf6e68c243bb4f0ab6c32d61b6f5a4
+ * @generated 8a82a1ed54b335ea7207cda8835af941
  */
 
 import typeof Methods from './JestWorkerRPC.js';
