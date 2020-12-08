@@ -13,7 +13,7 @@ import type {
   Test,
   TestResult,
   Watcher,
-} from '@jest-runner/core/types';
+} from 'jest-hax-core/types';
 import type {IPCServer} from '../../core/src/ipc-server';
 import type {TestRunnerTarget} from '../types.js';
 

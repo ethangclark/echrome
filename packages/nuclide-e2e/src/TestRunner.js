@@ -12,11 +12,11 @@ import type {
   Test,
   Watcher,
   TestResult as TestResultBase,
-} from '@jest-runner/core/types';
+} from 'jest-hax-core/types';
 import type {TestResult} from '../types';
 
-import {buildFailureTestResult} from '@jest-runner/core/utils';
-import Docblock from '@jest-runner/core/docblock';
+import {buildFailureTestResult} from 'jest-hax-core/utils';
+import Docblock from 'jest-hax-core/docblock';
 import {spawn} from 'child_process';
 import fs from 'fs-extra';
 import NuclideE2ERPCProcess from './rpc/NuclideE2ERPCProcess.generated';

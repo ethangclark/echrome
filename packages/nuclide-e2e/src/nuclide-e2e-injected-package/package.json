@@ -5,7 +5,7 @@
     "description": "This package gets injected into Atom to start up an RPC server that will run e2e tests",
     "keywords": [],
     "activationCommands": {},
-    "repository": "https://github.com/facebook-atom/jest-electron-runner",
+    "repository": "https://github.com/facebook-atom/jest-electron-hax",
     "license": "MIT",
     "engines": {
         "atom": ">=1.0.0 <2.0.0"

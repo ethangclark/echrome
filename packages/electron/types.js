@@ -8,7 +8,7 @@
  * @format
  */
 
-import type {ProjectConfig, GlobalConfig} from '@jest-runner/core/types';
+import type {ProjectConfig, GlobalConfig} from 'jest-hax-core/types';
 
 export type IPCTestData = {|
   serialisableModuleMap: Object,

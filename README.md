@@ -1,6 +1,3 @@
-[![CircleCI](https://circleci.com/gh/facebook-atom/jest-electron-runner.svg?style=svg)](https://circleci.com/gh/facebook-atom/jest-electron-runner)
-
-
 ## Jest electron runner
 A custom test runner for Jest that runs tests inside an [electron](https://electronjs.org/) main or renderer process providing the following benefits:
 
@@ -13,16 +10,16 @@ A custom test runner for Jest that runs tests inside an [electron](https://elect
 
 ## Getting Started
 
-*NOTE: for `jest@23` use the older version `~@jest-runner/electron@0.2.2`*
+*NOTE: for `jest@23` use the older version `~jest-hax-electron@0.2.2`*
 
-1. Install jest electron runner `yarn add @jest-runner/electron --dev`
+1. Install jest electron runner `yarn add jest-hax-electron --dev`
 2. Add one of these lines to your jest config (in `package.json` or inside your `jest.config.js` file), depending on the process you wish to test. If you wish to test them in parallel, see the tips section below.
 
     - Main process
     ```js
         {
           // ...
-          runner: '@jest-runner/electron/main',
+          runner: 'jest-hax-electron/main',
           testEnvironment: 'node',
         }
     ```
@@ -30,8 +27,8 @@ A custom test runner for Jest that runs tests inside an [electron](https://elect
     ```js
         {
           // ...
-          runner: '@jest-runner/electron',
-          testEnvironment: '@jest-runner/electron/environment',
+          runner: 'jest-hax-electron',
+          testEnvironment: 'jest-hax-electron/environment',
         }
     ```
 3. run jest!
@@ -42,7 +39,7 @@ A custom test runner for Jest that runs tests inside an [electron](https://elect
 </h1>
 
 ### Debugging
-Normally jest-electron-runner runs a headless instance of electron when testing the renderer process. You may show the UI by adding this to your test:
+Normally jest-electron-hax runs a headless instance of electron when testing the renderer process. You may show the UI by adding this to your test:
 ```js
 require('electron').remote.getCurrentWindow().show();
 ```
@@ -58,14 +55,14 @@ module.exports = {
   projects: [
     {
       ...common,
-      runner: '@jest-runner/electron/main',
+      runner: 'jest-hax-electron/main',
       testEnvironment: 'node',
       testMatch: ['**/__tests__/**/*.(spec|test).ts']
     },
     {
       ...common,
-      runner: '@jest-runner/electron',
-      testEnvironment: '@jest-runner/electron/environment',
+      runner: 'jest-hax-electron',
+      testEnvironment: 'jest-hax-electron/environment',
       testMatch: ['**/__tests__/**/*.(spec|test).tsx']
     }
   ]

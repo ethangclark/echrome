@@ -12,7 +12,7 @@ import type {
   ProjectConfig,
   GlobalConfig,
   TestResult as TestResultBase,
-} from '@jest-runner/core/types';
+} from 'jest-hax-core/types';
 
 export type IPCTestData = {
   config: ProjectConfig,

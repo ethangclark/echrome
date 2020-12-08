@@ -1,11 +1,11 @@
 {
-    "name": "@jest-runner/core",
+    "name": "jest-hax-core",
     "version": "3.0.0",
     "description": "Shared code for Jest test runner packages",
-    "author": "Aaron Abramov",
+    "author": "Ethan Gregory Clark",
     "license": "MIT",
-    "homepage": "https://github.com/facebook-atom/jest-electron-runner",
-    "repository": "https://github.com/facebook-atom/jest-electron-runner",
+    "homepage": "https://github.com/facebook-atom/jest-electron-hax",
+    "repository": "https://github.com/facebook-atom/jest-electron-hax",
     "dependencies": {
         "jest-message-util": "^26.6.0",
         "node-ipc": "^9.1.1"
