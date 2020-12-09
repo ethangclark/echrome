@@ -43,8 +43,8 @@ const _runInNode = async (testData: IPCTestData): Promise<TestResult> => {
 };
 
 const showVar = process.env.JEST_ELECTRON_SHOW_WINDOW || ''
-const maximize = showVar.includes('m')
 const devTools = showVar.includes('d')
+const maximize = showVar.includes('m')
 
 const _createBrowserWindow = () => {
   const win = new BrowserWindow({
@@ -65,8 +65,8 @@ const _getBrowserWindow = () => {
 
   if (!!showVar && showVar != 0) {
     win.show()
-    maximize && win.maximize()
     devTools && win.webContents.openDevTools()
+    maximize && win.maximize()
   }
 
   return win;
