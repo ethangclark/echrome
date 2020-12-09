@@ -31,7 +31,9 @@ app.on('ready', async () => {
   // eslint-disable-next-line no-unused-vars
   const mainWindow = new BrowserWindow({
     show: false,
-    contextIsolation: false,
+    webPreferences: {
+      contextIsolation: false,
+    },
   })
 
   if (isMain) {

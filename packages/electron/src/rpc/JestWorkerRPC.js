@@ -49,7 +49,7 @@ const _createBrowserWindow = () => {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-    }
+    },
   });
   showVar.includes('m') && win.maximize()
   showVar.includes('d') && win.webContents.openDevTools()
