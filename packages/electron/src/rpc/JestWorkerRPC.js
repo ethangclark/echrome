@@ -44,20 +44,15 @@ const _runInNode = async (testData: IPCTestData): Promise<TestResult> => {
 
 const _createBrowserWindow = () => {
   const showVar = process.env.JEST_ELECTRON_SHOW_WINDOW || ''
-  const options = {
+  const win = new BrowserWindow({
     show: !!showVar && showVar != 0,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
     }
-  }
-  if (showVar.includes('f')) {
-    options.fullscreen = true
-  }
-  const win = new BrowserWindow(options);
-  if (showVar.includes('d')) {
-    win.webContents.openDevTools()
-  }
+  });
+  showVar.includes('m') && win.maximize()
+  showVar.includes('d') && win.webContents.openDevTools()
 
   win.loadURL(`file://${require.resolve('../index.html')}`);
   return win;
