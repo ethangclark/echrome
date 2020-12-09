@@ -10,5 +10,5 @@
         "jest-message-util": "^26.6.0",
         "node-ipc": "^9.1.1"
     },
-    "gitHead": "289c15a1bf254156141662b8d5ec94e3cacc4504"
+    "gitHead": "f3119ab7f25731c1de179f234f339e482d69cd27"
 }
