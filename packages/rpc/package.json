@@ -18,5 +18,5 @@
     "bin": {
         "jest-runner-rpc-generate": "./bin/cli.js"
     },
-    "gitHead": "65a42687fc7017a4c55c94d4f090e2ecd988ff41"
+    "gitHead": "f433c74db8e9e744dadf0ec058d907c9aa17a826"
 }
