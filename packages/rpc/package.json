@@ -1,6 +1,6 @@
 {
     "name": "jest-hax-rpc",
-    "version": "3.0.4",
+    "version": "3.0.5",
     "description": "RPC that powers Jest runners",
     "author": "Ethan Gregory Clark",
     "license": "MIT",
@@ -8,7 +8,7 @@
     "repository": "https://github.com/facebook-atom/jest-electron-hax",
     "dependencies": {
         "glob": "^7.1.3",
-        "jest-hax-core": "^3.0.4",
+        "jest-hax-core": "^3.0.5",
         "jscodeshift": "^0.6.3",
         "node-ipc": "^9.1.1",
         "prettier": "^1.14.2",
