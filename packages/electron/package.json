@@ -1,6 +1,6 @@
 {
     "name": "jest-hax-electron",
-    "version": "3.0.6",
+    "version": "3.0.7",
     "description": "Jest runner that spawns atom/electron workers instead of node",
     "author": "Ethan Gregory Clark",
     "license": "MIT",
