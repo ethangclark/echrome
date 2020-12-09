@@ -1,4 +1,4 @@
-## Jest electron runner
+## Jest hax electron
 A custom test runner for Jest that runs tests inside an [electron](https://electronjs.org/) main or renderer process providing the following benefits:
 
 - Main
@@ -12,7 +12,7 @@ A custom test runner for Jest that runs tests inside an [electron](https://elect
 
 *NOTE: for `jest@23` use the older version `~jest-hax-electron@0.2.2`*
 
-1. Install jest electron runner `yarn add jest-hax-electron --dev`
+1. Install jest hax electron `yarn add jest-hax-electron --dev`
 2. Add one of these lines to your jest config (in `package.json` or inside your `jest.config.js` file), depending on the process you wish to test. If you wish to test them in parallel, see the tips section below.
 
     - Main process

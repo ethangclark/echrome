@@ -2,12 +2,12 @@
   "name": "jest-electron-hax",
   "private": true,
   "version": "0.0.0",
-  "description": "",
+  "description": "true full-stack jest testing",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/facebook-atom/jest-electron-hax.git"
   },
-  "author": "",
+  "author": "Ethan Gregory Clark",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/facebook-atom/jest-electron-hax/issues"
