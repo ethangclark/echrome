@@ -4,8 +4,8 @@
     "description": "Shared code for Jest test runner packages",
     "author": "Ethan Gregory Clark",
     "license": "MIT",
-    "homepage": "https://github.com/facebook-atom/jest-electron-hax",
-    "repository": "https://github.com/facebook-atom/jest-electron-hax",
+    "homepage": "https://github.com/8balloon/jest-hax",
+    "repository": "https://github.com/8balloon/jest-hax",
     "dependencies": {
         "jest-message-util": "^26.6.0",
         "node-ipc": "^9.1.1"

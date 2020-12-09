@@ -1,18 +1,18 @@
 {
-  "name": "jest-electron-hax",
+  "name": "jest-hax",
   "private": true,
   "version": "0.0.0",
   "description": "true full-stack jest testing",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/facebook-atom/jest-electron-hax.git"
+    "url": "git+https://github.com/8balloon/jest-hax.git"
   },
   "author": "Ethan Gregory Clark",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/facebook-atom/jest-electron-hax/issues"
+    "url": "https://github.com/8balloon/jest-hax/issues"
   },
-  "homepage": "https://github.com/facebook-atom/jest-electron-hax#readme",
+  "homepage": "https://github.com/8balloon/jest-hax#readme",
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/node": "^7.2.2",

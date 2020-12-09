@@ -1,4 +1,4 @@
-## Jest hax electron
+## jest-hax-electron
 A custom test runner for Jest that runs tests inside an [electron](https://electronjs.org/) main or renderer process providing the following benefits:
 
 - Main
@@ -37,12 +37,6 @@ A custom test runner for Jest that runs tests inside an [electron](https://elect
 <h1 align="center">
     <img src="https://raw.githubusercontent.com/aaronabramov/gifs/master/jest_electron_runner_seutup.gif" />
 </h1>
-
-### Debugging
-Normally jest-electron-hax runs a headless instance of electron when testing the renderer process. You may show the UI by adding this to your test:
-```js
-require('electron').remote.getCurrentWindow().show();
-```
 
 ### Tips
 - The main process runner can be used to test any non-browser related code, which can speed up tests roughly 2x.

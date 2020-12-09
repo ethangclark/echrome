@@ -4,8 +4,8 @@
     "description": "Jest runner that spawns atom/electron workers instead of node",
     "author": "Ethan Gregory Clark",
     "license": "MIT",
-    "homepage": "https://github.com/facebook-atom/jest-electron-hax",
-    "repository": "https://github.com/facebook-atom/jest-electron-hax",
+    "homepage": "https://github.com/8balloon/jest-hax",
+    "repository": "https://github.com/8balloon/jest-hax",
     "dependencies": {
         "jest-haste-map": "^26.6.0",
         "jest-hax-core": "^3.0.6",
