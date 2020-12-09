@@ -42,8 +42,11 @@ const _runInNode = async (testData: IPCTestData): Promise<TestResult> => {
   }
 };
 
+const showVar = process.env.JEST_ELECTRON_SHOW_WINDOW || ''
+const maximize = showVar.includes('m')
+const devTools = showVar.includes('d')
+
 const _createBrowserWindow = () => {
-  const showVar = process.env.JEST_ELECTRON_SHOW_WINDOW || ''
   const win = new BrowserWindow({
     show: !!showVar && showVar != 0,
     webPreferences: {
@@ -51,8 +54,6 @@ const _createBrowserWindow = () => {
       contextIsolation: false,
     },
   });
-  showVar.includes('m') && win.maximize()
-  showVar.includes('d') && win.webContents.openDevTools()
 
   win.loadURL(`file://${require.resolve('../index.html')}`);
   return win;
@@ -61,6 +62,9 @@ const _createBrowserWindow = () => {
 const _getBrowserWindow = () => {
   const win = nextBrowserWindow || _createBrowserWindow();
   nextBrowserWindow = _createBrowserWindow();
+
+  maximize && win.maximize()
+  devTools && win.webContents.openDevTools()
 
   return win;
 }
