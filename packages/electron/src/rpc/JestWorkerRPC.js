@@ -48,7 +48,7 @@ const devTools = showVar.includes('d')
 
 const _createBrowserWindow = () => {
   const win = new BrowserWindow({
-    show: !!showVar && showVar != 0,
+    show: false,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -63,8 +63,11 @@ const _getBrowserWindow = () => {
   const win = nextBrowserWindow || _createBrowserWindow();
   nextBrowserWindow = _createBrowserWindow();
 
-  maximize && win.maximize()
-  devTools && win.webContents.openDevTools()
+  if (!!showVar && showVar != 0) {
+    win.show()
+    maximize && win.maximize()
+    devTools && win.webContents.openDevTools()
+  }
 
   return win;
 }
