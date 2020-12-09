@@ -1,6 +1,6 @@
 {
     "name": "jest-hax-core",
-    "version": "3.0.1",
+    "version": "3.0.2",
     "description": "Shared code for Jest test runner packages",
     "author": "Ethan Gregory Clark",
     "license": "MIT",

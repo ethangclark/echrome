@@ -1,6 +1,6 @@
 {
     "name": "jest-hax-electron",
-    "version": "3.0.1",
+    "version": "3.0.2",
     "description": "Jest runner that spawns atom/electron workers instead of node",
     "author": "Ethan Gregory Clark",
     "license": "MIT",
@@ -8,8 +8,8 @@
     "repository": "https://github.com/facebook-atom/jest-electron-hax",
     "dependencies": {
         "jest-haste-map": "^26.6.0",
-        "jest-hax-core": "^3.0.1",
-        "jest-hax-rpc": "^3.0.1",
+        "jest-hax-core": "^3.0.2",
+        "jest-hax-rpc": "^3.0.2",
         "jest-mock": "^26.6.0",
         "jest-runner": "^26.6.0",
         "jest-runtime": "^26.6.0",
