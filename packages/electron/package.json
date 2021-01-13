@@ -1,6 +1,6 @@
 {
     "name": "electrochrome",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "description": "Jest runner that spawns atom/electron workers instead of node",
     "author": "Ethan Gregory Clark",
     "license": "MIT",
