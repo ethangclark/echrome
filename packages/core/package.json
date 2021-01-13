@@ -1,6 +1,6 @@
 {
     "name": "electrochrome-core",
-    "version": "0.2.2",
+    "version": "0.3.0",
     "description": "Shared code for Jest test runner packages",
     "author": "Ethan Gregory Clark",
     "license": "MIT",
