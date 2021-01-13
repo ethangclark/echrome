@@ -19,7 +19,7 @@ if (!window.__REACT_DEVTOOLS_GLOBAL_HOOK__) {
 
 import type {IPCTestData} from '../types';
 
-import {buildFailureTestResult} from 'jest-hax-core/utils';
+import {buildFailureTestResult} from 'electrochrome-core/utils';
 import {ipcRenderer} from 'electron';
 import runTest from 'jest-runner/build/runTest';
 import {getResolver} from './utils/resolver';
@@ -72,5 +72,23 @@ const patchConsole = () => {
     });
   delete global.console;
   global.console = mergedConsole;
+
+  let _console = global.console
+  Object.defineProperty(global, 'console', {
+    get() {
+      return _console
+    },
+    set(newConsole) {
+      Object.entries(_console).forEach(([k, method]) => {
+        const newMethod = newConsole[k]
+        if (typeof method !== 'function' || typeof newMethod !== 'function') return
+        newConsole[k] = (...args) => {
+          method(...args)
+          return newMethod(...args)
+        }
+      })
+      _console = newConsole
+    },
+  })
 };
 patchConsole();

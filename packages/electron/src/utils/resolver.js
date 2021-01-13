@@ -7,7 +7,7 @@
  * @flow
  */
 
-import type {ProjectConfig} from 'jest-hax-core/types';
+import type {ProjectConfig} from 'electrochrome-core/types';
 
 import Runtime from 'jest-runtime';
 import HasteMap from 'jest-haste-map';

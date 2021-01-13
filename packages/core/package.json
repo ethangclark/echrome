@@ -1,11 +1,11 @@
 {
-    "name": "jest-hax-core",
-    "version": "3.0.6",
+    "name": "electrochrome-core",
+    "version": "0.2.0",
     "description": "Shared code for Jest test runner packages",
     "author": "Ethan Gregory Clark",
     "license": "MIT",
-    "homepage": "https://github.com/8balloon/jest-hax",
-    "repository": "https://github.com/8balloon/jest-hax",
+    "homepage": "https://github.com/8balloon/electrochrome",
+    "repository": "https://github.com/8balloon/electrochrome",
     "dependencies": {
         "jest-message-util": "^26.6.0",
         "node-ipc": "^9.1.1"

@@ -1,4 +1,4 @@
-## jest-hax-electron
+## electrochrome
 A custom test runner for Jest that runs tests inside an [electron](https://electronjs.org/) main or renderer process providing the following benefits:
 
 - Main
@@ -7,19 +7,20 @@ A custom test runner for Jest that runs tests inside an [electron](https://elect
 - Renderer
   - full access to a browser environment without the need for jsdom or similar modules
 
+Running your jest tests in the renderer process allows for e2e client/server testing in the same process. This allows for *very* fast e2e tests.
 
 ## Getting Started
 
-*NOTE: for `jest@23` use the older version `~jest-hax-electron@0.2.2`*
+*NOTE: requires `jest@>=24`*
 
-1. Install jest hax electron `yarn add jest-hax-electron --dev`
+1. Install electrochrome `yarn add electrochrome --dev`
 2. Add one of these lines to your jest config (in `package.json` or inside your `jest.config.js` file), depending on the process you wish to test. If you wish to test them in parallel, see the tips section below.
 
-    - Main process
+    - Main process (only necessary for testing electron main processes, if you're into that)
     ```js
         {
           // ...
-          runner: 'jest-hax-electron/main',
+          runner: 'electrochrome/main',
           testEnvironment: 'node',
         }
     ```
@@ -27,49 +28,43 @@ A custom test runner for Jest that runs tests inside an [electron](https://elect
     ```js
         {
           // ...
-          runner: 'jest-hax-electron',
-          testEnvironment: 'jest-hax-electron/environment',
+          runner: 'electrochrome',
+          testEnvironment: 'electrochrome/environment',
         }
     ```
 3. run jest!
 
-
-<h1 align="center">
-    <img src="https://raw.githubusercontent.com/aaronabramov/gifs/master/jest_electron_runner_seutup.gif" />
-</h1>
-
 ### Tips
-- The main process runner can be used to test any non-browser related code, which can speed up tests roughly 2x.
-- To run the main and renderer process tests in parallel, you can provide a config object to the `projects` array in a jest javascript config file like so:
+- To run the main (or node) and renderer process tests in parallel, you can provide a config object to the `projects` array in a jest javascript config file like so:
 ```js
 // jest.config.js
 const common = require('./jest.common.config')
 
 module.exports = {
   projects: [
+    // node
     {
       ...common,
-      runner: 'jest-hax-electron/main',
       testEnvironment: 'node',
       testMatch: ['**/__tests__/**/*.(spec|test).ts']
     },
+    // electron 
     {
       ...common,
-      runner: 'jest-hax-electron',
-      testEnvironment: 'jest-hax-electron/environment',
+      runner: 'electrochrome/main',
+      testEnvironment: 'node',
+      testMatch: ['**/__tests__/**/*.(spec|test).electron.ts']
+    },
+    // renderer process (e2e tests)
+    {
+      ...common,
+      runner: 'electrochrome',
+      testEnvironment: 'electrochrome/environment',
       testMatch: ['**/__tests__/**/*.(spec|test).tsx']
     }
   ]
 }
 ```
-
-### [Code of Conduct](https://code.facebook.com/codeofconduct)
-
-Facebook has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](https://code.facebook.com/codeofconduct) so that you can understand what actions will and will not be tolerated.
-
-### [Contributing Guide](CONTRIBUTING.md)
-
-Read our [contributing guide](CONTRIBUTING.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to Jest.
 
 ## License
 

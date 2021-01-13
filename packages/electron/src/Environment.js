@@ -8,7 +8,7 @@
  * @format
  */
 
-import type {ProjectConfig} from 'jest-hax-core/types';
+import type {ProjectConfig} from 'electrochrome-core/types';
 
 import mock from 'jest-mock';
 import {installCommonGlobals} from 'jest-util';

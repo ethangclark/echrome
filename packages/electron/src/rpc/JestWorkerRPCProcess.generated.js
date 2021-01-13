@@ -3,11 +3,11 @@
  * THIS IS A GENERATED FILE. DO NOT MODIFY IT MANUALLY!
  * ****************************************************
  * @flow
- * @generated 8a82a1ed54b335ea7207cda8835af941
+ * @generated ebdcfc26b51a59723f5c168f7f79dc45
  */
 
 import typeof Methods from './JestWorkerRPC.js';
-import RPCProcess from 'jest-hax-rpc/RPCProcess';
+import RPCProcess from 'electrochrome-rpc/RPCProcess';
 
 class JestWorkerRPCProcess extends RPCProcess<Methods> {
   initializeRemote(): Methods {

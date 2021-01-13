@@ -13,7 +13,7 @@ import type {
   Test,
   TestResult,
   Watcher,
-} from 'jest-hax-core/types';
+} from 'electrochrome-core/types';
 import type {IPCServer} from '../../core/src/ipc-server';
 import type {TestRunnerTarget} from '../types.js';
 

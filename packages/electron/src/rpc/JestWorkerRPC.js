@@ -7,14 +7,14 @@
  * @flow
  */
 
-import type {TestResult} from 'jest-hax-core/types';
+import type {TestResult} from 'electrochrome-core/types';
 import type {IPCTestData} from '../../types';
 import runTest from 'jest-runner/build/runTest';
 
 import {
   makeUniqWorkerId,
   buildFailureTestResult,
-} from 'jest-hax-core/utils';
+} from 'electrochrome-core/utils';
 
 import {BrowserWindow, ipcMain} from 'electron';
 import {getResolver} from '../utils/resolver';
@@ -42,9 +42,10 @@ const _runInNode = async (testData: IPCTestData): Promise<TestResult> => {
   }
 };
 
-const showVar = process.env.JEST_ELECTRON_SHOW_WINDOW || ''
-const devTools = showVar.includes('d')
-const maximize = showVar.includes('m')
+const debugVar = process.env.ELECTROCHROME_DEBUG || ''
+const showWindow = !!debugVar
+const devTools = debugVar.includes('d')
+const maximize = debugVar.includes('m')
 
 const _createBrowserWindow = () => {
   const win = new BrowserWindow({
@@ -52,6 +53,7 @@ const _createBrowserWindow = () => {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
+      // backgroundThrottling: false,
     },
   });
 
@@ -63,7 +65,7 @@ const _getBrowserWindow = () => {
   const win = nextBrowserWindow || _createBrowserWindow();
   nextBrowserWindow = _createBrowserWindow();
 
-  if (!!showVar && showVar != 0) {
+  if (showWindow) {
     win.show()
     devTools && win.webContents.openDevTools()
     maximize && win.maximize()
