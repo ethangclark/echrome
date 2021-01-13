@@ -1,14 +1,14 @@
 {
     "name": "electrochrome",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "description": "Jest runner that spawns atom/electron workers instead of node",
     "author": "Ethan Gregory Clark",
     "license": "MIT",
     "homepage": "https://github.com/8balloon/electrochrome",
     "repository": "https://github.com/8balloon/electrochrome",
     "dependencies": {
-        "electrochrome-core": "^0.2.0",
-        "electrochrome-rpc": "^0.2.0",
+        "electrochrome-core": "^0.2.2",
+        "electrochrome-rpc": "^0.2.2",
         "jest-haste-map": "^26.6.0",
         "jest-mock": "^26.6.0",
         "jest-runner": "^26.6.0",
