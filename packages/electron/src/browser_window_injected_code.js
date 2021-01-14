@@ -55,40 +55,32 @@ ipcRenderer.on(
   },
 );
 
-const patchConsole = () => {
-  const mainConsole = new Console(process.stdout, process.stderr);
-  const rendererConsole = global.console;
-  const mergedConsole = {};
-  Object.getOwnPropertyNames(rendererConsole)
-    .filter(prop => typeof rendererConsole[prop] === 'function')
-    .forEach(prop => {
-      mergedConsole[prop] =
-        typeof mainConsole[prop] === 'function'
-          ? (...args) => {
-              mainConsole[prop](...args);
-              return rendererConsole[prop](...args);
-            }
-          : (...args) => rendererConsole[prop](...args);
-    });
-  delete global.console;
-  global.console = mergedConsole;
+// const patchConsole = () => {
+//   const mainConsole = new Console(process.stdout, process.stderr);
+//   const rendererConsole = global.console;
+//   const mergedConsole = {};
+//   Object.getOwnPropertyNames(rendererConsole)
+//     .filter(prop => typeof rendererConsole[prop] === 'function')
+//     .forEach(prop => {
+//       mergedConsole[prop] =
+//         typeof mainConsole[prop] === 'function'
+//           ? (...args) => {
+//               mainConsole[prop](...args);
+//               return rendererConsole[prop](...args);
+//             }
+//           : (...args) => rendererConsole[prop](...args);
+//     });
+//   delete global.console;
+//   global.console = mergedConsole;
+// };
+// patchConsole();
 
-  let _console = global.console
+// dirty but it works
+function blockConsoleOverride() {
+  const _console = global.console
   Object.defineProperty(global, 'console', {
-    get() {
-      return _console
-    },
-    set(newConsole) {
-      Object.entries(_console).forEach(([k, method]) => {
-        const newMethod = newConsole[k]
-        if (typeof method !== 'function' || typeof newMethod !== 'function') return
-        newConsole[k] = (...args) => {
-          method(...args)
-          return newMethod(...args)
-        }
-      })
-      _console = newConsole
-    },
+    get() { return _console },
+    set() {},
   })
-};
-patchConsole();
+}
+blockConsoleOverride()
