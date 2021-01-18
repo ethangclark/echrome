@@ -8,14 +8,14 @@
  */
 
 import crypto from 'crypto';
-import Docblock from 'electrochrome-core/docblock';
+import Docblock from 'echrome-core/docblock';
 import fs from 'fs';
 import globLib from 'glob';
 import j from 'jscodeshift';
 import path from 'path';
 import prettier from 'prettier';
 
-const DEFAULT_RPC_PROCESS_PATH = 'electrochrome-rpc/RPCProcess';
+const DEFAULT_RPC_PROCESS_PATH = 'echrome-rpc/RPCProcess';
 
 type GenerateOptions = {|
   globs: Array<string>,

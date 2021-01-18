@@ -1,11 +1,11 @@
 {
-    "name": "electrochrome-core",
+    "name": "echrome-core",
     "version": "0.3.0",
     "description": "Shared code for Jest test runner packages",
     "author": "Ethan Gregory Clark",
     "license": "MIT",
-    "homepage": "https://github.com/8balloon/electrochrome",
-    "repository": "https://github.com/8balloon/electrochrome",
+    "homepage": "https://github.com/8balloon/echrome",
+    "repository": "https://github.com/8balloon/echrome",
     "dependencies": {
         "jest-message-util": "^26.6.0",
         "node-ipc": "^9.1.1"

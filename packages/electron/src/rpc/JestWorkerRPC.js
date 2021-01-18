@@ -7,14 +7,14 @@
  * @flow
  */
 
-import type {TestResult} from 'electrochrome-core/types';
+import type {TestResult} from 'echrome-core/types';
 import type {IPCTestData} from '../../types';
 import runTest from 'jest-runner/build/runTest';
 
 import {
   makeUniqWorkerId,
   buildFailureTestResult,
-} from 'electrochrome-core/utils';
+} from 'echrome-core/utils';
 
 import {BrowserWindow, ipcMain} from 'electron';
 import {getResolver} from '../utils/resolver';
@@ -42,18 +42,12 @@ const _runInNode = async (testData: IPCTestData): Promise<TestResult> => {
   }
 };
 
-const debugVar = process.env.ELECTROCHROME_DEBUG || ''
-const showWindow = !!debugVar
-const devTools = debugVar.includes('d')
-const maximize = debugVar.includes('m')
-
 const _createBrowserWindow = () => {
   const win = new BrowserWindow({
     show: false,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-      // backgroundThrottling: false,
     },
   });
 
@@ -65,10 +59,13 @@ const _getBrowserWindow = () => {
   const win = nextBrowserWindow || _createBrowserWindow();
   nextBrowserWindow = _createBrowserWindow();
 
-  if (showWindow) {
+  // TODO: parse testData.config to get the config, where
+  // we consider "echrome" jest test options if available
+  // (possibly including middleware)
+  if (process.env.ECHROME_DEBUG) {
     win.show()
-    devTools && win.webContents.openDevTools()
-    maximize && win.maximize()
+    win.webContents.openDevTools()
+    win.maximize()
   }
 
   return win;

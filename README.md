@@ -1,4 +1,4 @@
-## electrochrome
+## echrome
 A custom test runner for Jest that runs tests inside an [electron](https://electronjs.org/) main or renderer process providing the following benefits:
 
 - Main
@@ -13,14 +13,14 @@ Running your jest tests in the renderer process allows for e2e client/server tes
 
 *NOTE: requires `jest@>=24`*
 
-1. Install electrochrome `yarn add electrochrome --dev`
+1. Install echrome `yarn add echrome --dev`
 2. Add one of these lines to your jest config (in `package.json` or inside your `jest.config.js` file), depending on the process you wish to test. If you wish to test them in parallel, see the tips section below.
 
     - Main process (only necessary for testing electron main processes, if you're into that)
     ```js
         {
           // ...
-          runner: 'electrochrome/main',
+          runner: 'echrome/main',
           testEnvironment: 'node',
         }
     ```
@@ -28,8 +28,8 @@ Running your jest tests in the renderer process allows for e2e client/server tes
     ```js
         {
           // ...
-          runner: 'electrochrome',
-          testEnvironment: 'electrochrome/environment',
+          runner: 'echrome',
+          testEnvironment: 'echrome/environment',
         }
     ```
 3. run jest!
@@ -51,15 +51,15 @@ module.exports = {
     // electron 
     {
       ...common,
-      runner: 'electrochrome/main',
+      runner: 'echrome/main',
       testEnvironment: 'node',
       testMatch: ['**/__tests__/**/*.(spec|test).electron.ts']
     },
     // renderer process (e2e tests)
     {
       ...common,
-      runner: 'electrochrome',
-      testEnvironment: 'electrochrome/environment',
+      runner: 'echrome',
+      testEnvironment: 'echrome/environment',
       testMatch: ['**/__tests__/**/*.(spec|test).tsx']
     }
   ]

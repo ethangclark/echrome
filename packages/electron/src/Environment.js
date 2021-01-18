@@ -8,7 +8,7 @@
  * @format
  */
 
-import type {ProjectConfig} from 'electrochrome-core/types';
+import type {ProjectConfig} from 'echrome-core/types';
 
 import mock from 'jest-mock';
 import {installCommonGlobals} from 'jest-util';

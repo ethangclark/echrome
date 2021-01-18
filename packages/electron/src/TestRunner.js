@@ -13,7 +13,7 @@ import type {
   Test,
   TestResult,
   Watcher,
-} from 'electrochrome-core/types';
+} from 'echrome-core/types';
 import type {IPCServer} from '../../core/src/ipc-server';
 import type {TestRunnerTarget} from '../types.js';
 

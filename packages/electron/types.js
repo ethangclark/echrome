@@ -8,7 +8,7 @@
  * @format
  */
 
-import type {ProjectConfig, GlobalConfig} from 'electrochrome-core/types';
+import type {ProjectConfig, GlobalConfig} from 'echrome-core/types';
 
 export type IPCTestData = {|
   serialisableModuleMap: Object,

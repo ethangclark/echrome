@@ -1,18 +1,18 @@
 {
-  "name": "electrochrome",
+  "name": "echrome",
   "private": true,
   "version": "0.0.0",
   "description": "true full-stack jest testing",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/8balloon/electrochrome.git"
+    "url": "git+https://github.com/8balloon/echrome.git"
   },
   "author": "Ethan Gregory Clark",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/8balloon/electrochrome/issues"
+    "url": "https://github.com/8balloon/echrome/issues"
   },
-  "homepage": "https://github.com/8balloon/electrochrome#readme",
+  "homepage": "https://github.com/8balloon/echrome#readme",
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/node": "^7.2.2",
