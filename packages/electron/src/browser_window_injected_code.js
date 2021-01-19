@@ -27,9 +27,22 @@ import {getResolver} from './utils/resolver';
 // $FlowFixMe
 const {Console} = require('console');
 
+// overwrites global variable,
+// and does not allow anything to overwrite it 
+// (without itself using Object.defineProperty)
+function insidiousGlobalSet(propName, obj) {
+  Object.defineProperty(global, propName, {
+    get() {
+      return obj
+    },
+    set() {}
+  })
+}
+
 ipcRenderer.on(
   'run-test',
   async (event, testData: IPCTestData, workerID: string) => {
+    // insidiousGlobalSet('__echrome', { testData })
     try {
       const result = await runTest(
         testData.path,
@@ -75,12 +88,5 @@ ipcRenderer.on(
 // };
 // patchConsole();
 
-// dirty but it works
-function blockConsoleOverride() {
-  const _console = global.console
-  Object.defineProperty(global, 'console', {
-    get() { return _console },
-    set() {},
-  })
-}
-blockConsoleOverride()
+// ensure console remains the electron console
+insidiousGlobalSet('console', global.console)
