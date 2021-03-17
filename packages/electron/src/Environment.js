@@ -12,7 +12,13 @@ import type {ProjectConfig} from 'echrome-core/types';
 
 import mock from 'jest-mock';
 import {installCommonGlobals} from 'jest-util';
-import {JestFakeTimers as FakeTimers} from '@jest/fake-timers';
+
+// this is pulling from the end-user's jest installation,
+// not the jest dep of this package, since @jest/fake-timers
+// is not an explicit dependency of this package.
+// we should consider making @jest/fake-timers an explicit dep
+// of this package when/if jest is upgraded in this package.
+import {LegacyFakeTimers as FakeTimers} from '@jest/fake-timers';
 
 export default class ElectronEnvironment {
   global: Object;
