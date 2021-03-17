@@ -8,7 +8,7 @@ A fork of https://github.com/facebook-atom/jest-electron-runner that's specifica
 
 ## Getting Started
 
-*NOTE: requires `jest@>=24`*
+*NOTE: requires `jest@>=26.6.3`*
 
 1. Install echrome `yarn add echrome --dev`
 2. Add one of these lines to your jest config (in `package.json` or inside your `jest.config.js` file), depending on the process you wish to test. If you wish to test them in parallel, see the tips section below.
