@@ -11,10 +11,7 @@ import type {TestResult} from 'echrome-core/types';
 import type {IPCTestData} from '../../types';
 import runTest from 'jest-runner/build/runTest';
 
-import {
-  makeUniqWorkerId,
-  buildFailureTestResult,
-} from 'echrome-core/utils';
+import {makeUniqWorkerId, buildFailureTestResult} from 'echrome-core/utils';
 
 import {BrowserWindow, ipcMain} from 'electron';
 import {getResolver} from '../utils/resolver';
@@ -53,7 +50,7 @@ const _createBrowserWindow = () => {
 
   win.loadURL(`file://${require.resolve('../index.html')}`);
   return win;
-}
+};
 
 const _getBrowserWindow = () => {
   const win = nextBrowserWindow || _createBrowserWindow();
@@ -63,19 +60,19 @@ const _getBrowserWindow = () => {
   // we consider "echrome" jest test options if available
   // (possibly including middleware)
   if (process.env.ECHROME_DEBUG) {
-    win.show()
-    win.webContents.openDevTools()
-    win.maximize()
+    win.show();
+    win.webContents.openDevTools();
+    win.maximize();
   }
 
   return win;
-}
+};
 
 const _destroyBrowserWindow = () => {
   if (nextBrowserWindow && !nextBrowserWindow.isDestroyed()) {
-    nextBrowserWindow.destroy()
+    nextBrowserWindow.destroy();
   }
-}
+};
 
 const _runInBrowserWindow = (testData: IPCTestData): Promise<TestResult> => {
   return new Promise(resolve => {
@@ -89,6 +86,22 @@ const _runInBrowserWindow = (testData: IPCTestData): Promise<TestResult> => {
     } else {
       win.webContents.send('run-test', testData, workerID);
     }
+    win.webContents.on('main-process-exec-request', async msg => {
+      const {id, fnString} = msg;
+      const fn = new Function('browserWindow', fnString);
+      try {
+        const result = await fn(win);
+        win.webContents.send(
+          'main-process-exec-response',
+          JSON.stringify({id, result}),
+        );
+      } catch (error) {
+        win.webContents.send(
+          'main-process-exec-response',
+          JSON.stringify({id, errorStack: error.stack}),
+        );
+      }
+    });
 
     ipcMain.once(workerID, (event, testResult: TestResult) => {
       win.destroy();

@@ -28,15 +28,15 @@ import {getResolver} from './utils/resolver';
 const {Console} = require('console');
 
 // overwrites global variable,
-// and does not allow anything to overwrite it 
+// and does not allow anything to overwrite it
 // (without itself using Object.defineProperty)
 function insidiousGlobalSet(propName, obj) {
   Object.defineProperty(global, propName, {
     get() {
-      return obj
+      return obj;
     },
-    set() {}
-  })
+    set() {},
+  });
 }
 
 ipcRenderer.on(
@@ -89,4 +89,22 @@ ipcRenderer.on(
 // patchConsole();
 
 // ensure console remains the electron console
-insidiousGlobalSet('console', global.console)
+insidiousGlobalSet('console', global.console);
+
+insidiousGlobalSet(
+  '__execInMain',
+  fnString =>
+    new Promise((resolve, reject) => {
+      const id = Math.random();
+      ipcRenderer.send(
+        'main-process-exec-request',
+        JSON.stringify({id, fnString}),
+      );
+      ipcRenderer.on('main-process-exec-response', msg => {
+        const {id, result, errorStack} = JSON.parse(msg);
+        if (id === id) {
+          errorStack ? reject(Error(errorStack)) : resolve(result);
+        }
+      });
+    }),
+);
