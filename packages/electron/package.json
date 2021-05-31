@@ -1,14 +1,14 @@
 {
     "name": "echrome",
-    "version": "0.4.3",
+    "version": "0.5.0",
     "description": "Jest runner that spawns atom/electron workers instead of node",
     "author": "Ethan Gregory Clark",
     "license": "MIT",
     "homepage": "https://github.com/8balloon/echrome",
     "repository": "https://github.com/8balloon/echrome",
     "dependencies": {
-        "echrome-core": "^0.4.0",
-        "echrome-rpc": "^0.4.0",
+        "echrome-core": "^0.5.0",
+        "echrome-rpc": "^0.5.0",
         "jest-haste-map": "^26.6.0",
         "jest-mock": "^26.6.0",
         "jest-runner": "^26.6.0",
