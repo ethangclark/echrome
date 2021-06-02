@@ -90,21 +90,3 @@ ipcRenderer.on(
 
 // ensure console remains the electron console
 insidiousGlobalSet('console', global.console);
-
-insidiousGlobalSet(
-  '__execInMain',
-  fnString =>
-    new Promise((resolve, reject) => {
-      const id = Math.random();
-      ipcRenderer.send(
-        'main-process-exec-request',
-        JSON.stringify({id, fnString}),
-      );
-      ipcRenderer.on('main-process-exec-response', msg => {
-        const {id, result, errorStack} = JSON.parse(msg);
-        if (id === id) {
-          errorStack ? reject(Error(errorStack)) : resolve(result);
-        }
-      });
-    }),
-);

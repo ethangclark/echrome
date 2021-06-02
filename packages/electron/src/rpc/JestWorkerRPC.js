@@ -79,15 +79,9 @@ const _runInBrowserWindow = (testData: IPCTestData): Promise<TestResult> => {
     const workerID = makeUniqWorkerId();
     const win = _getBrowserWindow();
 
-    if (win.webContents.isLoading()) {
-      win.webContents.on('did-finish-load', () => {
-        win.webContents.send('run-test', testData, workerID);
-      });
-    } else {
-      win.webContents.send('run-test', testData, workerID);
-    }
-    win.webContents.on('main-process-exec-request', async msg => {
-      const {id, fnString} = msg;
+    win.webContents.on('ipc-message', async (event, channel, data) => {
+      if (channel !== 'main-process-exec-request') return;
+      const {id, fnString} = data;
       const fn = new Function('browserWindow', fnString);
       try {
         const result = await fn(win);
@@ -96,12 +90,20 @@ const _runInBrowserWindow = (testData: IPCTestData): Promise<TestResult> => {
           JSON.stringify({id, result}),
         );
       } catch (error) {
-        win.webContents.send(
-          'main-process-exec-response',
-          JSON.stringify({id, errorStack: error.stack}),
-        );
+        win.webContents.send('main-process-exec-response', {
+          id,
+          errorStack: error.stack,
+        });
       }
     });
+
+    if (win.webContents.isLoading()) {
+      win.webContents.on('did-finish-load', () => {
+        win.webContents.send('run-test', testData, workerID);
+      });
+    } else {
+      win.webContents.send('run-test', testData, workerID);
+    }
 
     ipcMain.once(workerID, (event, testResult: TestResult) => {
       win.destroy();
